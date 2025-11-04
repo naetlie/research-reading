@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Распределение пользователей</title>
+</head>
+<body>
+<script>
+  // Распределение пользователей на две страницы другого сайта
+  var targetSite = "http://research-reading.tilda.ws";
+  var page1 = "/page82475466.html"; // первая страница
+  var page2 = "/page81087106.html"; // вторая страница
+ 
+// Проверяем, есть ли уже назначение в localStorage
+  var assignedPage = localStorage.getItem("userPage");
+  if (!assignedPage) {
+    // Если нет, рандомно выбираем
+    assignedPage = Math.random() < 0.5 ? page1 : page2;
+    localStorage.setItem("userPage", assignedPage);
+  }
+  // Перенаправляем на выбранную страницу
+  window.location.href = targetSite + assignedPage;
+</script>
+</body>
+</html>
